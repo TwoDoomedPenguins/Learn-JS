@@ -28,6 +28,7 @@
 ---
 
 ## Abgeschlossene Aufgabe
-`* [x] Drücke einen Button und generiere 5 Randomzahlen`
+
+* [x] `Drücke einen Button und generiere 5 Randomzahlen`
 
 ---
