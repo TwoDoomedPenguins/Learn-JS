@@ -1,0 +1,25 @@
+{
+  "name": "Learn-JS",
+  "version": "1.0.0",
+  "description": "Dies ist eine Sammlung an kleinen Testapplikationen um JavaScript zu lernen und zu verstehen",
+  "main": "logindata.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TwoDoomedPenguins/Learn-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TwoDoomedPenguins/Learn-JS/issues"
+  },
+  "homepage": "https://github.com/TwoDoomedPenguins/Learn-JS#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0"
+  }
+}

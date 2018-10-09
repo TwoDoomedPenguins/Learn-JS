@@ -1,0 +1,17 @@
+.world{
+    font-size: 24px;
+    text-align: center;
+}
+
+table, td {
+    border: 1px solid rgb(194, 194, 194);
+    
+}
+
+table{
+    width: 50%;
+}
+
+td, tr {
+    text-align: center;
+}
