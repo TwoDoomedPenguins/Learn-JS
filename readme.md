@@ -10,6 +10,11 @@
 ## ToDo's
 
 * [ ] Hin/Her Brainstorming
+    * Login Screen
+        * Verschlüsselung der Daten
+        * SSL Zertifikat einbinden?
+        * Die eingegebenen Daten als MySQL Credentials nutzen
+
     * mit begrenzte Zeichen/Wortanzahl begrenztes Hin und Her von Ideen
         * Zeichenbegrenzung pro Beitrag - 200
         * Beitragsbegrenzung - 10
@@ -18,6 +23,9 @@
     * Email Notification + unsubscribe function (wenn möglich)
     * Dashboard um auf alle Idee-Bücher zuzugreifen
 
+---
+
+## Future
 * [ ] Ideensammlung
     * Text Editor
 
