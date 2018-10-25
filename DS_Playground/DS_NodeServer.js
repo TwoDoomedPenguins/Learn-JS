@@ -50,19 +50,33 @@ http.createServer(function (request, response) {
 http.createServer(function (request, response) {
 
     console.log(request.method);
+    // console.log("###########################################################  START REQUEST ##########################################")
+    // console.log(request);
+    // console.log("###########################################################  END REQUEST ##########################################")
 
     var headers = {};
 
     // set header to handle the CORS
     headers['Access-Control-Allow-Origin'] = '*';
+    headers['Access-Control-Request-Method'] = '*';
     headers['Access-Control-Allow-Headers'] = 'Content-Type, Cache-Control, Origin, Content-Length, Authorization, Accept, X-Requested-With';
-    headers['Access-Contrl-Allow-Methods'] = 'PUT, POST, GET, DELETE, OPTIONS';
+    headers['Access-Control-Allow-Methods'] = 'PUT, POST, GET, DELETE, OPTIONS';
     headers["Access-Control-Max-Age"] = '86400';
     response.writeHead(200, headers);
 
     if (request.method === 'OPTIONS') {
+
+        // response.setHeader('Access-Control-Allow-Origin', '*');
+        // response.setHeader('Access-Control-Request-Method', '*');
+        // response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+        // response.setHeader('Access-Control-Allow-Headers', '*');
+        // response.end();
+
         console.log('OPTIONS SUCCESSFUL CONVERTED');
-        // response.statusCode = 99;
+        response.statusCode = 200;
+        response.statusMessage = "OPTIONS IN ORDNUNG";
+        // response.end();
+        // response.writeHead(200, headers);
     } else if (request.method === 'POST') {
         console.log("Bin im Post");
         let getBodyTask = new Promise(function (SUCCESS, ERROR) {
@@ -71,11 +85,10 @@ http.createServer(function (request, response) {
 
             request.on('data', function (bodyData) {
                 bodyString += bodyData;
-                console.log(bodyString);
             })
 
             request.on('end', function () {
-                 console.log(bodyString);
+                console.log(bodyString);
                 requestBody = JSON.parse(bodyString);
                 //console.log(requestBody);
                 SUCCESS(requestBody);
@@ -85,11 +98,11 @@ http.createServer(function (request, response) {
         console.log(getBodyTask);
         getBodyTask.then(function (value) {
             console.log(value.userName);
-            response.statusCode = 99999;
+            response.write(JSON.stringify(value));
+            // response.write("SCHICKEDIDACK");
+            response.statusCode = 200;
             response.statusMessage = "PASST SCHO";
-            response.end("Jo hat geklappt");
-            
-
+            response.end();
         })
         // console.log(request);
         // console.log(response);
@@ -98,10 +111,9 @@ http.createServer(function (request, response) {
         // console.log("Username = " + requestBody.userName);
         // console.log("Password = " + requestBody.password);
     } else {
-        response.statusCode = 99;
+        response.statusCode = 200;
+        response.end();
     }
-
-    console.log("Habe ich erhalten");
 }).listen(8081);
 
 function TestQuery(connection) {

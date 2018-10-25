@@ -21,15 +21,12 @@ function Login() {
             }
         }
     ).then(function(response)
-    {
-        console.log(response);
+    {        
+        response.text().then(function(body)
+        {
+            console.log(body);
+            let response = JSON.parse(body);
+            console.log("Username = "+response.userName);
+        })
     });
-
-            // method: "POST",
-            // body: JSON.stringify(
-            //     {
-            //         userName:userName,
-            //         password:password
-            // })
-
 }
